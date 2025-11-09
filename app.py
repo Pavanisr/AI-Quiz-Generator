@@ -4,15 +4,15 @@ import os
 
 app = Flask(__name__)
 
-# 🧩 Configure Gemini API
-os.environ["GOOGLE_API_KEY"] = ""  # Add your API key here
+
+os.environ["GOOGLE_API_KEY"] = ""  
 genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 
-# Model
+
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 
-# Function to generate quiz
+
 def generate_quiz(topic, difficulty, num_questions, question_type):
     prompt = f"""
     Generate a {num_questions}-question quiz on "{topic}".
